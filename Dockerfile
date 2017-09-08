@@ -25,7 +25,7 @@ ENV PHP_BUILD_DEPS bzip2 \
 		libxml2-dev
 ENV LANG C.UTF-8
 
-RUN apt-get update && apt-get install -y ca-certificates curl libxml2 autoconf slapd php5-ldap libldb-dev libldap2-dev \
+RUN apt-get update && apt-get install -y ca-certificates curl libxml2 autoconf libldap2-dev php5-ldap \
     gcc libc-dev make pkg-config nginx-full \
     runit nano less tmux wget git locales \
     $PHP_BUILD_DEPS $PHP_EXTRA_BUILD_DEPS \
@@ -66,6 +66,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 6E4F6AB321FDC07F2C332E3A
 		--with-zlib \
 		--enable-zip \
 		--with-ldap \
+		--with-libdir=lib/x86_64-linux-gnu \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
