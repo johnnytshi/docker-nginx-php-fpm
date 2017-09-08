@@ -25,7 +25,7 @@ ENV PHP_BUILD_DEPS bzip2 \
 		libxml2-dev
 ENV LANG C.UTF-8
 
-RUN apt-get update && apt-get install -y ca-certificates curl libxml2 autoconf php5-ldap libldb-dev libldap2-dev \
+RUN apt-get update && apt-get install -y ca-certificates curl libxml2 autoconf slapd php5-ldap libldb-dev libldap2-dev \
     gcc libc-dev make pkg-config nginx-full \
     runit nano less tmux wget git locales \
     $PHP_BUILD_DEPS $PHP_EXTRA_BUILD_DEPS \
