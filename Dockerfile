@@ -65,6 +65,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 6E4F6AB321FDC07F2C332E3A
 		--with-readline \
 		--with-zlib \
 		--enable-zip \
+		--with-ldap \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
